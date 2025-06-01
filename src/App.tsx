@@ -1,10 +1,10 @@
-import './App.css'
+import './styles/App.css';
+import Layout from './layouts/layout';
+
 
 function App() {
   return (
-    <div className='flex justify-center items-center h-screen text-green-900 bg-black'>
-      mfundoChat Web Application
-    </div>
+    <Layout />
   )
 }
 
