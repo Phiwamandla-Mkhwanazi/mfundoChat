@@ -20,19 +20,22 @@ const contacts = [
 
 function PhoneBook() {
   return (
-    <div className="bg-white h-full">
-      <div className="overflow-y-auto max-h-[calc(100vh-11rem)]">
+    <div className="h-full bg-zinc-100  px-2 sm:px-4 py-4">
+      <div className="overflow-y-auto max-h-[calc(100vh-16rem)] ">
         <ul className="flex flex-col gap-3">
           {contacts.map((contact) => (
             <li
               key={contact.id}
-              className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-zinc-200 hover:shadow-md transition hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-green-600 group"
+              tabIndex={0}
             >
-              <div className="w-10 h-10 flex-shrink-0 rounded-full bg-green-500 text-white font-bold flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-green-500 text-white font-semibold flex items-center justify-center text-lg shadow-sm">
                 {contact.name.charAt(0)}
               </div>
               <div className="flex flex-col">
-                <span className="font-medium text-gray-900">{contact.name}</span>
+                <span className="font-semibold text-gray-900 group-hover:text-green-600">
+                  {contact.name}
+                </span>
                 <span className="text-sm text-gray-500">{contact.phone}</span>
               </div>
             </li>

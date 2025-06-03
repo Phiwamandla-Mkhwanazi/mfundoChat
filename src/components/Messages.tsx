@@ -73,7 +73,7 @@ const Messages: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen max-h-screen bg-zinc-400 shadow-lg p-2">
+    <div className="flex flex-col h-screen max-h-screen bg-zinc-400 shadow-lg ">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
         <div>

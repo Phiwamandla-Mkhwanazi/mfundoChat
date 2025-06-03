@@ -4,7 +4,7 @@ import Footer from "./Footer";
 function Contacts()
 {
     return (
-        <div className="bg-zinc-200 min-h-screen grid grid-rows-[auto_1fr_auto] p-2">
+        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
             <Header />
             <PhoneBook />
             <Footer/>
