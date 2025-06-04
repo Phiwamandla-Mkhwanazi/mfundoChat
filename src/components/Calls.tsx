@@ -16,28 +16,85 @@ const dummyCalls: Call[] = [
   {
     id: 1,
     name: 'Steve Biko',
-    avatar: 'https://i.pravatar.cc/150?img=10',
+    avatar: 'https://cdn.britannica.com/98/186798-050-A75D263D/Steve-Biko.jpg',
     time: 'Today, 10:15 AM',
     type: 'incoming',
     mode: 'voice',
   },
   {
     id: 2,
-    name: 'Richard Stallman',
-    avatar: 'https://i.pravatar.cc/150?img=20',
+    name: 'Linus Torvalds',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT37IdM73BbIF2Y04TYzT6XwFPg9Che5r0lwA&s',
     time: 'Yesterday, 9:40 PM',
     type: 'outgoing',
     mode: 'video',
   },
   {
     id: 3,
-    name: 'Christopher Hitchens',
+    name: 'Grace Hopper',
     avatar: 'https://i.pravatar.cc/150?img=30',
     time: 'Today, 7:55 AM',
     type: 'missed',
     mode: 'voice',
   },
+  {
+    id: 4,
+    name: 'Ada Lovelace',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ada_Lovelace_portrait.jpg/800px-Ada_Lovelace_portrait.jpg',
+    time: 'Today, 12:30 PM',
+    type: 'incoming',
+    mode: 'video',
+  },
+  {
+    id: 5,
+    name: 'Alan Turing',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg',
+    time: '2 days ago, 3:20 PM',
+    type: 'missed',
+    mode: 'voice',
+  },
+  {
+    id: 6,
+    name: 'Katherine Johnson',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Katherine_Johnson_1983.jpg/800px-Katherine_Johnson_1983.jpg',
+    time: 'Yesterday, 11:00 AM',
+    type: 'incoming',
+    mode: 'voice',
+  },
+  {
+    id: 7,
+    name: 'Dennis Ritchie',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dennis_Ritchie_2011.jpg/800px-Dennis_Ritchie_2011.jpg',
+    time: 'Today, 5:45 PM',
+    type: 'outgoing',
+    mode: 'voice',
+  },
+  {
+    id: 8,
+    name: 'Barbara Liskov',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Barbara_Liskov_MIT.jpg/800px-Barbara_Liskov_MIT.jpg',
+    time: 'Today, 2:10 PM',
+    type: 'incoming',
+    mode: 'video',
+  },
+  {
+    id: 9,
+    name: 'Ken Thompson',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Ken_Thompson_2019.jpg/800px-Ken_Thompson_2019.jpg',
+    time: 'Yesterday, 8:00 PM',
+    type: 'missed',
+    mode: 'video',
+  },
+  {
+    id: 10,
+    name: 'Margaret Hamilton',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Margaret_Hamilton_1969.jpg/800px-Margaret_Hamilton_1969.jpg',
+    time: 'Today, 6:20 AM',
+    type: 'outgoing',
+    mode: 'voice',
+  },
 ];
+
 
 // Return color-coded label for call type
 const getCallTypeLabel = (type: CallType) => {
@@ -75,11 +132,11 @@ function Calls() {
       </header>
 
       {/* Call List */}
-      <ul className="space-y-5 px-3">
+      <ul className="space-y-3 px-3  py-6 overflow-y-auto max-h-[calc(100vh-12rem)]">
         {dummyCalls.map((call) => (
           <li
             key={call.id}
-            className="flex items-center justify-between p-4 bg-white dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+            className="flex items-center justify-between p-4 bg-green-900 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
           >
             <div className="flex items-center space-x-4">
               <img
