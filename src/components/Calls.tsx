@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Footer from './Footer';
+import { SearchIcon } from './Icons';
 
 type CallType = 'incoming' | 'outgoing' | 'missed';
 type CallMode = 'voice' | 'video';
@@ -95,21 +97,18 @@ const dummyCalls: Call[] = [
   },
 ];
 
-
-// Return color-coded label for call type
 const getCallTypeLabel = (type: CallType) => {
-  const baseStyle = "text-xs font-medium rounded-full px-2 py-0.5";
+  const baseStyle = 'text-xs font-semibold rounded-full px-2 py-0.5';
   switch (type) {
     case 'incoming':
-      return <span className={`${baseStyle} bg-green-100 text-green-700`}>Incoming</span>;
+      return <span className={`${baseStyle} bg-emerald-200 text-emerald-800`}>Incoming</span>;
     case 'outgoing':
-      return <span className={`${baseStyle} bg-blue-100 text-blue-700`}>Outgoing</span>;
+      return <span className={`${baseStyle} bg-sky-200 text-sky-800`}>Outgoing</span>;
     case 'missed':
-      return <span className={`${baseStyle} bg-red-100 text-red-700`}>Missed</span>;
+      return <span className={`${baseStyle} bg-rose-200 text-rose-800`}>Missed</span>;
   }
 };
 
-// Return simple emoji or icon with label
 const getCallModeIcon = (mode: CallMode) => {
   const icon = mode === 'voice' ? '📞' : '🎥';
   const label = mode === 'voice' ? 'Voice Call' : 'Video Call';
@@ -121,45 +120,67 @@ const getCallModeIcon = (mode: CallMode) => {
 };
 
 function Calls() {
+  const [query, setQuery] = useState('');
+
+  const filteredCalls = dummyCalls.filter((call) =>
+    call.name.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
-    <section className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-gradient-to-br from-zinc-100 to-zinc-200  ">
+    <section className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-gradient-to-br from-[#f8fafc] to-[#e0f2f1] dark:from-[#0f172a] dark:to-[#1e293b]">
       {/* Header */}
-      <header className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-zinc-800 ">Recent Calls</h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">
-          A summary of your latest voice and video calls
-        </p>
+      <header className="mb-4 px-6 py-4 backdrop-blur-md bg-white/40 dark:bg-zinc-900/40 border-b border-zinc-300 dark:border-zinc-700 shadow-md">
+        <h1 className="text-3xl font-bold text-zinc-800 dark:text-white mb-3">📞 Recent Calls</h1>
+        <div className="relative">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by name..."
+            className="w-full pl-11 pr-4 py-2 rounded-xl bg-white/70 dark:bg-zinc-800/60 text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-400 border border-transparent focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
+          />
+          <span className="absolute left-3 top-2.5 text-emerald-500 dark:text-emerald-300">
+            <SearchIcon />
+          </span>
+        </div>
       </header>
 
       {/* Call List */}
-      <ul className="space-y-3 px-3  py-6 overflow-y-auto max-h-[calc(100vh-12rem)]">
-        {dummyCalls.map((call) => (
-          <li
-            key={call.id}
-            className="flex items-center justify-between p-4 bg-green-900 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
-          >
-            <div className="flex items-center space-x-4">
-              <img
-                src={call.avatar}
-                alt={`${call.name} avatar`}
-                className="w-12 h-12 rounded-full border-2 border-green-500 shadow-md"
-              />
-              <div>
-                <p className="text-base font-semibold text-zinc-800 dark:text-white">{call.name}</p>
-                <time className="text-sm text-zinc-500 dark:text-zinc-400">{call.time}</time>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              {getCallTypeLabel(call.type)}
-              {getCallModeIcon(call.mode)}
-            </div>
+      <ul className="space-y-5 px-6 py-4 overflow-y-auto max-h-[calc(100vh-16rem)]">
+        {filteredCalls.length === 0 ? (
+          <li className="text-zinc-500 dark:text-zinc-400 italic text-center py-10">
+            No calls found.
           </li>
-        ))}
+        ) : (
+          filteredCalls.map((call) => (
+            <li
+              key={call.id}
+              className="flex items-center justify-between p-4 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-200 hover:scale-[1.01]"
+            >
+              <div className="flex items-center gap-4">
+                <img
+                  src={call.avatar}
+                  alt={`Avatar of ${call.name}`}
+                  className="w-12 h-12 rounded-full border-2 border-emerald-400 shadow-md"
+                />
+                <div>
+                  <p className="text-base font-semibold text-zinc-900 dark:text-white">
+                    {call.name}
+                  </p>
+                  <time className="text-sm text-zinc-500 dark:text-zinc-300">{call.time}</time>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {getCallTypeLabel(call.type)}
+                {getCallModeIcon(call.mode)}
+              </div>
+            </li>
+          ))
+        )}
       </ul>
 
       {/* Footer */}
-      <footer className="mt-6">
+      <footer className="border-t border-zinc-300 dark:border-zinc-700 px-6 py-4 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md">
         <Footer />
       </footer>
     </section>

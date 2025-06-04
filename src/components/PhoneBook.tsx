@@ -18,26 +18,25 @@ const contacts = [
   { id: 17, name: "Janet Basu", phone: "+27 61 884 1092" },
 ];
 
-
 function PhoneBook() {
   return (
-    <div className="h-full bg-zinc-100  px-2 sm:px-4 py-5">
-      <div className="overflow-y-auto max-h-[calc(100vh-20rem)] ">
-        <ul className="flex flex-col gap-3">
+    <div className="h-full bg-gradient-to-b from-[#f0f9ff] to-[#e0f2fe] dark:from-slate-900 dark:to-slate-800 px-4 p-5 sm:px-6">
+      <div className="overflow-y-auto max-h-[calc(100vh-20.2rem)] scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-100 dark:scrollbar-thumb-slate-600 px-2">
+        <ul className="flex flex-col gap-4">
           {contacts.map((contact) => (
             <li
               key={contact.id}
-              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-zinc-200 hover:shadow-md transition hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-green-600 group"
+              className="flex items-center gap-4 p-4 bg-white dark:bg-slate-700 rounded-xl shadow hover:shadow-lg border border-sky-100 dark:border-slate-600 hover:-translate-y-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-sky-500 group"
               tabIndex={0}
             >
-              <div className="w-12 h-12 rounded-full bg-green-500 text-white font-semibold flex items-center justify-center text-lg shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-sky-500 text-white font-bold flex items-center justify-center text-lg shadow">
                 {contact.name.charAt(0)}
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-gray-900 group-hover:text-green-600">
+                <span className="font-semibold text-slate-800 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-300">
                   {contact.name}
                 </span>
-                <span className="text-sm text-gray-500">{contact.phone}</span>
+                <span className="text-sm text-slate-500 dark:text-slate-300">{contact.phone}</span>
               </div>
             </li>
           ))}
