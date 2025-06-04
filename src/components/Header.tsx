@@ -5,7 +5,7 @@ function Header() {
   const [searchMode, setSearchMode] = useState<"contacts" | "chats">("contacts");
 
   return (
-    <header className="flex flex-col gap-4 px-6 py-4 bg-green-700 text-white rounded-b-2xl shadow-lg">
+    <header className="flex flex-col gap-4 px-6 py-4 bg-green-700 text-white shadow-lg">
       {/* Top Bar */}
       <div className="flex items-center justify-between">
         {/* Avatar and Welcome */}
