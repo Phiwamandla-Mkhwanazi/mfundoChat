@@ -1,14 +1,11 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import PhoneBook from './PhoneBook';
-
-
+import Footer from "../components/Footer"
+import { Outlet } from "react-router-dom";
 function Contacts()
 {
     return (
         <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
-            <Header />
-            <PhoneBook />
+            <div>Section Header</div>
+            <Outlet />
             <Footer/>
         </div>
     );

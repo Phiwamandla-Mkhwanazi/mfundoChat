@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Footer from './Footer';
 function Settings() {
   // Example state hooks
   const [username, setUsername] = useState("username");
@@ -8,11 +8,12 @@ function Settings() {
   const [language, setLanguage] = useState("en");
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
       <h1 className="text-3xl font-semibold mb-6 text-gray-800">Settings</h1>
 
       {/* Profile Section */}
-      <section className="mb-8">
+      <div>
+           <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4 text-gray-700">Profile</h2>
         <label className="block mb-4">
           <span className="text-gray-600">Username</span>
@@ -79,6 +80,10 @@ function Settings() {
           Save Changes
         </button>
       </div>
+
+      </div>
+     
+      <Footer />
     </div>
   );
 }

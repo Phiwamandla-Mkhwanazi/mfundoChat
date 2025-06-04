@@ -1,9 +1,10 @@
-import Main from "../components/Main";
+import { Outlet } from "react-router-dom";
 
-function Layout() {
-  return (
-      <Main />
-  );
+function Layout()
+{
+    return (
+      <Outlet/>   
+    );
 }
 
 export default Layout;

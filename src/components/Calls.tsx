@@ -1,5 +1,7 @@
-type CallType = "incoming" | "outgoing" | "missed";
-type CallMode = "voice" | "video";
+import Footer from './Footer';
+
+type CallType = 'incoming' | 'outgoing' | 'missed';
+type CallMode = 'voice' | 'video';
 
 interface Call {
   id: number;
@@ -13,71 +15,97 @@ interface Call {
 const dummyCalls: Call[] = [
   {
     id: 1,
-    name: "Alice Johnson",
-    avatar: "https://i.pravatar.cc/150?img=10",
-    time: "Today, 10:15 AM",
-    type: "incoming",
-    mode: "voice",
+    name: 'Steve Biko',
+    avatar: 'https://i.pravatar.cc/150?img=10',
+    time: 'Today, 10:15 AM',
+    type: 'incoming',
+    mode: 'voice',
   },
   {
     id: 2,
-    name: "Bob Smith",
-    avatar: "https://i.pravatar.cc/150?img=20",
-    time: "Yesterday, 9:40 PM",
-    type: "outgoing",
-    mode: "video",
+    name: 'Richard Stallman',
+    avatar: 'https://i.pravatar.cc/150?img=20',
+    time: 'Yesterday, 9:40 PM',
+    type: 'outgoing',
+    mode: 'video',
   },
   {
     id: 3,
-    name: "Charlie Daniels",
-    avatar: "https://i.pravatar.cc/150?img=30",
-    time: "Today, 7:55 AM",
-    type: "missed",
-    mode: "voice",
+    name: 'Christopher Hitchens',
+    avatar: 'https://i.pravatar.cc/150?img=30',
+    time: 'Today, 7:55 AM',
+    type: 'missed',
+    mode: 'voice',
   },
 ];
 
+// Return color-coded label for call type
+const getCallTypeLabel = (type: CallType) => {
+  const baseStyle = "text-xs font-medium rounded-full px-2 py-0.5";
+  switch (type) {
+    case 'incoming':
+      return <span className={`${baseStyle} bg-green-100 text-green-700`}>Incoming</span>;
+    case 'outgoing':
+      return <span className={`${baseStyle} bg-blue-100 text-blue-700`}>Outgoing</span>;
+    case 'missed':
+      return <span className={`${baseStyle} bg-red-100 text-red-700`}>Missed</span>;
+  }
+};
+
+// Return simple emoji or icon with label
+const getCallModeIcon = (mode: CallMode) => {
+  const icon = mode === 'voice' ? '📞' : '🎥';
+  const label = mode === 'voice' ? 'Voice Call' : 'Video Call';
+  return (
+    <span className="ml-2 text-xl" aria-label={label} title={label}>
+      {icon}
+    </span>
+  );
+};
+
 function Calls() {
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-zinc-900 rounded-lg shadow-md">
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Recent Calls</h1>
-      
-      <ul className="space-y-4">
+    <section className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-gradient-to-br from-zinc-100 to-zinc-200  ">
+      {/* Header */}
+      <header className="mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-zinc-800 ">Recent Calls</h1>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          A summary of your latest voice and video calls
+        </p>
+      </header>
+
+      {/* Call List */}
+      <ul className="space-y-5 px-3">
         {dummyCalls.map((call) => (
           <li
             key={call.id}
-            className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800 transition"
+            className="flex items-center justify-between p-4 bg-white dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
           >
             <div className="flex items-center space-x-4">
               <img
                 src={call.avatar}
-                alt={call.name}
-                className="w-10 h-10 rounded-full object-cover"
+                alt={`${call.name} avatar`}
+                className="w-12 h-12 rounded-full border-2 border-green-500 shadow-md"
               />
               <div>
-                <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{call.name}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{call.time}</p>
+                <p className="text-base font-semibold text-zinc-800 dark:text-white">{call.name}</p>
+                <time className="text-sm text-zinc-500 dark:text-zinc-400">{call.time}</time>
               </div>
             </div>
 
-            <div className="flex items-center space-x-2">
-              {call.type === "incoming" && (
-                <span className="text-green-500 text-xs">Incoming</span>
-              )}
-              {call.type === "outgoing" && (
-                <span className="text-blue-500 text-xs">Outgoing</span>
-              )}
-              {call.type === "missed" && (
-                <span className="text-red-500 text-xs">Missed</span>
-              )}
-              <span className="ml-2 text-gray-400">
-                {call.mode === "voice" ? "📞" : "🎥"}
-              </span>
+            <div className="flex items-center gap-2">
+              {getCallTypeLabel(call.type)}
+              {getCallModeIcon(call.mode)}
             </div>
           </li>
         ))}
       </ul>
-    </div>
+
+      {/* Footer */}
+      <footer className="mt-6">
+        <Footer />
+      </footer>
+    </section>
   );
 }
 

@@ -20,8 +20,8 @@ const contacts = [
 
 function PhoneBook() {
   return (
-    <div className="h-full bg-zinc-100  px-2 sm:px-4 py-4">
-      <div className="overflow-y-auto max-h-[calc(100vh-16rem)] ">
+    <div className="h-full bg-zinc-100  px-2 sm:px-4 py-5">
+      <div className="overflow-y-auto max-h-[calc(100vh-20rem)] ">
         <ul className="flex flex-col gap-3">
           {contacts.map((contact) => (
             <li

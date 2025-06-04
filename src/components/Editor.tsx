@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BoldIcon, ItalicIcon, UnderlineIcon, UndoIcon, RedoIcon } from "./Icons"; // You can create or replace with your own icons
+import Footer from './Footer';
 
 function Editor() {
   const [content, setContent] = useState<string>("");
@@ -45,6 +46,7 @@ function Editor() {
       >
         {content}
       </div>
+      <Footer />
     </div>
   );
 }
