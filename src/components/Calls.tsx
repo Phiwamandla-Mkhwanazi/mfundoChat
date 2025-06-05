@@ -127,9 +127,9 @@ function Calls() {
   );
 
   return (
-    <section className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-gradient-to-br from-[#f8fafc] to-[#e0f2f1] dark:from-[#0f172a] dark:to-[#1e293b]">
+    <section className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-gradient-to-b from-[#f0f9ff] to-[#e0f2fe] dark:from-slate-900 dark:to-slate-800">
       {/* Header */}
-      <header className="mb-4 px-6 py-4 backdrop-blur-md bg-white/40 dark:bg-zinc-900/40 border-b border-zinc-300 dark:border-zinc-700 shadow-md">
+      <header className="bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg p-4  transition-colors duration-300">
         <h1 className="text-3xl font-bold text-zinc-800 dark:text-white mb-3">📞 Recent Calls</h1>
         <div className="relative">
           <input
@@ -146,7 +146,7 @@ function Calls() {
       </header>
 
       {/* Call List */}
-      <ul className="space-y-5 px-6 py-4 overflow-y-auto max-h-[calc(100vh-16rem)]">
+      <ul className="space-y-5 px-3 overflow-y-auto max-h-[calc(100vh-13rem)] m-1.5">
         {filteredCalls.length === 0 ? (
           <li className="text-zinc-500 dark:text-zinc-400 italic text-center py-10">
             No calls found.
@@ -155,9 +155,9 @@ function Calls() {
           filteredCalls.map((call) => (
             <li
               key={call.id}
-              className="flex items-center justify-between p-4 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-200 hover:scale-[1.01]"
+              className="flex items-center justify-between   bg-white dark:bg-slate-700 rounded-xl shadow hover:shadow-lg border border-sky-100 dark:border-slate-600 hover:-translate-y-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-sky-500 group hover:shadow-2xl transition-shadow duration-200 hover:scale-[1.01]"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 px-1">
                 <img
                   src={call.avatar}
                   alt={`Avatar of ${call.name}`}
@@ -180,7 +180,7 @@ function Calls() {
       </ul>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-300 dark:border-zinc-700 px-6 py-4 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md">
+      <footer className="border-t border-zinc-300 dark:border-zinc-700 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md">
         <Footer />
       </footer>
     </section>
