@@ -13,7 +13,7 @@ function Terminal({ defaultLang = "javascript", defaultValue = "// Start coding.
     <div className="h-screen w-full bg-slate-900 text-white  shadow-xl overflow-hidden relative border border-slate-700">
       
       {/* Toolbar */}
-      <div className="flex items-center justify-between p-3 bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 z-10">
+      <div className="flex items-center justify-between p-3 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg border-b border-slate-700 z-10">
         
         {/* Language Selector */}
         <div className="flex items-center gap-2">

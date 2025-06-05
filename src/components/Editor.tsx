@@ -7,7 +7,7 @@ function Editor() {
     <div className='flex h-full'>
 
     <div className='flex'>
-      <ul className='flex flex-col gap-4 p-2 space-y-6 bg-slate-900 text-green-500'>
+      <ul className='flex flex-col gap-4 p-2 space-y-6 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg text-green-500'>
         <li>📁 Files</li>
         <li>🔗 Share</li>
       </ul>
@@ -47,7 +47,10 @@ function Editor() {
 
       </div>
     </div>
-      <Footer/>
+       {/* Footer */}
+      <footer className="border-t border-zinc-700 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md">
+        <Footer />
+      </footer>
    </div>
 
      

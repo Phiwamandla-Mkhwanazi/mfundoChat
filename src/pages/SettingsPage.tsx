@@ -9,7 +9,7 @@ function SettingsPage(){
     <div className="flex items-center justify-center w-20 h-20 rounded-full bg-emerald-600/10 ring-2 ring-emerald-500/50 shadow-lg backdrop-blur-md">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-8 h-8 text-emerald-400"
+        className="w-8 h-8 text-green-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
