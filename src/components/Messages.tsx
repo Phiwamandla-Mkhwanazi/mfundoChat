@@ -67,9 +67,9 @@ const Messages: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-900 text-white transition-colors duration-300 shadow-inner">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 border-b border-sky-200 dark:border-slate-700 bg-sky-50 dark:bg-slate-800">
+      <header className="flex items-center justify-between px-6 py-4 border-b border-sky-200 dark:border-slate-700 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg p-4  transition-colors duration-300">
         <div>
           <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Mfundo Platform</h2>
           <p className="text-xs text-sky-500 dark:text-sky-400">Online</p>
@@ -106,7 +106,7 @@ const Messages: React.FC = () => {
             <div
               className={`px-4 py-2 rounded-xl shadow ${
                 sender === "me"
-                  ? "bg-sky-600 text-white rounded-br-none"
+                  ? "bg-slate-500 text-white rounded-br-none"
                   : "bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-bl-none"
               }`}
             >
@@ -121,7 +121,7 @@ const Messages: React.FC = () => {
       </main>
 
       {/* Input Area */}
-      <footer className="flex items-center gap-3 p-4 border-t border-sky-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+      <footer className="flex items-center gap-3 p-4 border-t border-sky-200 dark:border-slate-700 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg p-4  transition-colors duration-300">
         <textarea
           rows={1}
           value={input}
@@ -158,7 +158,7 @@ const Messages: React.FC = () => {
           className={`px-4 py-2 rounded-full font-semibold text-white transition ${
             input.trim()
               ? "bg-sky-600 hover:bg-sky-700"
-              : "bg-sky-400 cursor-not-allowed"
+              : "bg-slate-500 cursor-not-allowed"
           }`}
         >
           Send

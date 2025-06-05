@@ -105,7 +105,7 @@ function Settings() {
         <div className="flex justify-center">
           <button
             onClick={() => alert("Settings saved!")}
-            className="bg-green-600 hover:bg-green-700 transition-all duration-200 text-white px-6 py-2 rounded-lg shadow-md font-semibold"
+            className="bg-slate-500 hover:bg-green-700 transition-all duration-200 text-white px-6 py-2 rounded-lg shadow-md font-semibold"
           >
             Save Changes
           </button>

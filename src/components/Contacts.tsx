@@ -9,7 +9,9 @@ function Contacts()
         <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
             <Header />
             <PhoneBook />
-            <Footer/>
+             <footer className="border-t border-zinc-700 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md">
+                <Footer />
+            </footer>
         </div>
     );
 }

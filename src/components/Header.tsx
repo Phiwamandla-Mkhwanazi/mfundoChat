@@ -42,7 +42,7 @@ function Header() {
         </div>
 
         {/* Toggle */}
-        <div className="flex justify-center sm:justify-start gap-3">
+        <div className="flex justify-between  gap-3">
           {["contacts", "chats"].map((mode) => {
             const isActive = searchMode === mode;
             return (

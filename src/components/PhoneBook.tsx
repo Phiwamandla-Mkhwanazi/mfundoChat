@@ -20,13 +20,13 @@ const contacts = [
 
 function PhoneBook() {
   return (
-    <div className="h-full bg-gradient-to-b from-[#f0f9ff] to-[#e0f2fe] dark:from-slate-900 dark:to-slate-800 px-4 p-5 sm:px-6">
-      <div className="overflow-y-auto max-h-[calc(100vh-20.2rem)] scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-100 dark:scrollbar-thumb-slate-600 px-2">
+    <div className="flex flex-col h-full  bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-900 text-white transition-colors duration-300 shadow-inner p-1">
+      <div className="overflow-y-auto max-h-[calc(100vh-17rem)] scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-100 dark:scrollbar-thumb-slate-600 px-2">
         <ul className="flex flex-col gap-4">
           {contacts.map((contact) => (
             <li
               key={contact.id}
-              className="flex items-center gap-4 p-4 bg-white dark:bg-slate-700 rounded-xl shadow hover:shadow-lg border border-sky-100 dark:border-slate-600 hover:-translate-y-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-sky-500 group"
+              className="flex items-center gap-4 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#80deea] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#334155] text-slate-900 dark:text-white shadow-lg p-4  border border-sky-100 dark:border-slate-600 hover:-translate-y-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-sky-500 group hover:shadow-2xl transition-shadow duration-200 hover:scale-[1.01] rounded-2xl"
               tabIndex={0}
             >
               <div className="w-12 h-12 rounded-full bg-sky-500 text-white font-bold flex items-center justify-center text-lg shadow">
